@@ -1,0 +1,40 @@
+$font-path: "/fonts/Quicksand.ttf"
+@font-face
+  font-family: "Quicksand"
+  src: url("#{$font-path}") format("truetype supports variations"), url("#{$font-path}") format("truetype-variations")
+  font-weight: 100 900
+  font-style: auto
+  font-display: swap
+  
+*
+  box-sizing: border-box
+
+html
+  font-size: 10px
+  font-family: Quicksand, Verdana, Geneva, Tahoma, sans-serif
+
+input, button, textarea, pre
+  font-family: Quicksand, Verdana, Geneva, Tahoma, sans-serif
+
+body, p
+  padding: 0
+  margin: 0
+
+.main-layout
+  background: $background
+  min-height: 100lvh
+  width: 100vw
+  color: $text
+
+.icon
+  path
+    color: $text
+  &.small
+    width: 2rem
+    height: 2rem
+  &.large
+    width: 4.8rem
+    height: 4.8rem
+
+@import styles/buttons, styles/nav, styles/home
+@import styles/input

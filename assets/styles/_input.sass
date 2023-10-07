@@ -1,0 +1,38 @@
+.input
+  outline: none
+  border: none
+  &.search
+    color: $text
+    background: transparent
+    width: 100%
+    font-weight: 500
+  
+.search--wrapper
+  font-size: 2rem
+  border-radius: 1rem
+  display: flex
+  flex-direction: row
+  gap: 1rem
+  border: 2px solid $accent
+  padding: 1rem
+  align-items: center
+  transition: all .4s
+  max-width: 100%
+  height: fit-content
+  align-self: center
+  background: transparent
+  svg path
+    color: $accent
+  .icon-wrapper
+    padding: 0.5rem
+    border-radius: 0.5rem
+    display: flex
+    align-items: center
+    transition: all .4s
+    & *
+      transition: all .4s
+  &:focus-within
+    .icon-wrapper
+      background: $accent
+      svg path
+        color: $background
