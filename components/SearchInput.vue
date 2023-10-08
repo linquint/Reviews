@@ -10,9 +10,3 @@
 <script lang="ts" setup>
 const store = useStore();
 </script>
-
-
-
-<style>
-
-</style>

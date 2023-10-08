@@ -3,7 +3,25 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   typescript: {
-    strict: true
+    strict: true,
+  },
+  security: {
+    rateLimiter: false,
+    corsHandler: {
+      origin: 'movies.linquint.dev',
+      methods: '*'
+    },
+    contentSecurityPolicy: {
+      'default-src': ["'self'", 'https:'],
+      'font-src': ["'self'", 'https:', 'data:'],
+      'form-action': ["'self'"],
+      'frame-ancestors': ["'self'"],
+      'img-src': ["'self'", 'data:', 'https:'],
+      'object-src': ["'none'", 'https:'],
+      'script-src-attr': ["'none'"],
+      'style-src': ["'self'", 'https:', "'unsafe-inline'"],
+      'upgrade-insecure-requests': true
+    }
   },
   components: [
     { path: '~/components', pathPrefix: false },
@@ -21,6 +39,7 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    'nuxt-security',
     'nuxt-icon',
     '@pinia/nuxt',
   ],
@@ -32,5 +51,5 @@ export default defineNuxtConfig({
       'defineStore',
       ['defineStore', 'definePiniaStore']
     ]
-  }
-})
+  },
+});

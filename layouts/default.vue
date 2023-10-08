@@ -8,7 +8,7 @@
         </div>
         <div class="nav-left">
           <SearchInput />
-          <button class="button bigger">
+          <button type="button" class="button bigger">
             Log in
           </button>
         </div>

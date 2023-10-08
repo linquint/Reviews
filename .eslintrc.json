@@ -1,8 +1,18 @@
 {
+  "parser": "vue-eslint-parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
+    "plugin:@typescript-eslint/recommended",
     "eslint:recommended",
     "plugin:vue/base"
   ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "rules": {
     "indent": [ "error", 2 ],
     "linebreak-style": 0,
@@ -16,10 +26,27 @@
     "eol-last": [ "error", "always" ],
     "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "no-unused-vars": "off",
     "react/display-name": "off",
     "react/prop-types": "off",
     "no-multi-spaces": [ "error" ],
     "object-curly-spacing": [ "error", "always" ],
-    "no-undef": "off"
+    "no-undef": "off",
+    "vue/html-button-has-type": "warn",
+    "vue/no-use-v-if-with-v-for": "error",
+    "vue/require-v-for-key": "error",
+    "vue/valid-v-for": "error",
+    "vue/no-multi-spaces": "error",
+    "vue/require-explicit-emits": "error",
+    "vue/attributes-order": "error",
+    "vue/no-unused-refs": "warn",
+    "vue/max-attributes-per-line": [ "error", {
+      "singleline": {
+        "max": 4
+      },
+      "multiline": {
+        "max": 1
+      }
+    }]
   }
 }
