@@ -1,15 +1,43 @@
 .button
-  border: none
+  border: 0.2rem solid transparent
   outline: none
   border-radius: 1.25rem
   padding: 1rem 1.5rem
   background: $accent
   color: $background
   font-size: 1.6rem
-  transition: all .4s
+  transition: box-shadow .4s
   cursor: pointer
   &:hover
     box-shadow: 0 0 2rem $accent
   &.bigger
     font-size: 2.4rem
     font-weight: 700
+  &.link
+    text-decoration: none
+  &.inactive
+    background: transparentize($accent, 1)
+    color: $accent
+    border: 0.2rem solid $accent
+    &:hover
+      box-shadow: none
+  &.like-btn
+    background: #9BFF7A
+    border-radius: 5rem
+    color: $primary
+    font-size: 2rem
+    height: fit-content
+    font-weight: 500
+    display: flex
+    gap: 1rem
+    align-items: center
+    svg path
+        color: $primary
+    &:hover
+      box-shadow: 0 0 2rem #9BFF7A77
+      color: $primary
+    &.dislike
+      background: #FF7A7A
+      &:hover
+        box-shadow: 0 0 2rem #FF7A7A77
+        color: $primary

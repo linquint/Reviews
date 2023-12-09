@@ -22,3 +22,31 @@
     border-radius: 1rem
     scrollbar-width: thin
     scrollbar-color: $accent $primary
+
+    &::-webkit-scrollbar
+      width: 1rem
+      height: 1rem
+      border-radius: 2rem
+
+    &::-webkit-scrollbar-track
+      background-color: $primary
+      border-radius: 2rem
+
+    &::-webkit-scrollbar-thumb
+      background-color: transparentize($accent, 0.5)
+      border-radius: 1rem
+      width: 1rem
+      transition: all .3s
+      &:hover
+        background-color: $accent
+
+    &::-moz-scrollbar
+      width: 1rem
+
+    &::-moz-scrollbar-track
+      background-color: $primary
+
+    &::-moz-scrollbar-thumb
+      background-color: $accent
+      border-radius: 0.5rem
+    

@@ -20,7 +20,7 @@
     "semi": [ "error", "always" ],
     "no-trailing-spaces": "warn",
     "comma-dangle": [ "error", "always-multiline" ],
-    "max-len": [ "error", { "code": 160, "ignoreComments": true } ],
+    "max-len": [ "error", { "code": 160, "ignoreComments": true, "ignoreTemplateLiterals": true } ],
     "no-console": "warn",
     "array-bracket-spacing": [ "error", "always" ],
     "eol-last": [ "error", "always" ],

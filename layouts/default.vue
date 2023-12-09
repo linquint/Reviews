@@ -4,13 +4,12 @@
       <div>
         <div class="title--wrapper">
           <Icon name="ri:movie-2-line" class="icon large" />
-          <span class="title">Movies Reviews</span>
+          <span class="title">Movies</span>
         </div>
         <div class="nav-left">
-          <SearchInput />
-          <button type="button" class="button bigger">
-            Log in
-          </button>
+          <nuxt-link to="/login" class="button bigger link">
+            Account
+          </nuxt-link>
         </div>
       </div>
     </nav>

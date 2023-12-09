@@ -5,6 +5,14 @@
   flex-direction: column
 .flex-row
   flex-direction: row
+.flex-wrap
+  flex-wrap: wrap
+
+// ALIGN JUSTIFY
+.align-c
+  align-items: center
+.justify-c
+  justify-content: center
 
 // TEXT ELLIPSIS
 .ellipsis
@@ -16,3 +24,17 @@
 @for $i from 1 through 100
   .gap-#{$i}
     gap: calc(#{$i}rem / 10)
+
+  // FONT SIZE
+  .fs-#{$i}
+    font-size: calc(#{$i}rem / 10) !important
+  .weight-#{$i}
+    font-weight: #{$i} !important
+
+  // margin
+  .mt-#{$i}
+    margin-top: calc(#{$i}rem / 10)
+
+  // width
+  .w-#{$i}
+    width: #{$i}rem !important

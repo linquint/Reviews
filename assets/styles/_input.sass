@@ -6,9 +6,9 @@
     background: transparent
     width: 100%
     font-weight: 500
+    font-size: 1.6rem
   
 .search--wrapper
-  font-size: 2rem
   border-radius: 1rem
   display: flex
   flex-direction: row
@@ -34,5 +34,10 @@
   &:focus-within
     .icon-wrapper
       background: $accent
-      svg path
+      svg path, svg stroke
         color: $background
+  &.full-width
+    width: 100%
+    margin-bottom: 1rem
+    .search
+      font-size: 2rem

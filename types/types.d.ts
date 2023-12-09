@@ -26,25 +26,47 @@ export interface MovieCardProps extends MovieProps {
 	addedOn: string;
 }
 
-export interface MovieAPIResponse {
-	actors: string[];
-	added_on: string;
-	awards: string | null;
-	directors: string[];
-	genres: string[];
-	imdb_votes: number;
-	keywords: string[];
-	plot: string;
-	poster: string;
-	rating_imdb: number;
-	rating_meta: number | null;
-	rating_rt: number | null;
-	release_year: number;
-	reviews: Review[];
-	runtime: number;
-	summaries: Summary[];
+export interface IMovieMain {
+  title: string;
+  releaseYear: string;
+  imdbID: string;
+  type: string;
+  poster: string;
+}
+
+export interface IMovieReduced extends IMovieMain {
+  id: number;
+  runtime: number;
+  plot: string;
+  awards: string;
+  ratingIMDB: number;
+  imdbVotes: number;
+  addedOn: string | null;
+  actors: string;
+  directors: string;
+  genres: string;
+}
+
+export interface IReview {
+  id: number;
+  imdbID: string;
+	author: string;
+	rating: number | null;
+	helpfulness: number;
+	upvotes: number;
+	downvotes: number;
 	title: string;
-	type: string;
+	content: string;
+	spoilers: number;
+	submittedOn: string;
+}
+
+export interface IMovieFull extends IMovieReduced {
+  actors: string | null;
+  directors: string | null;
+  genres: string | null;
+  reviews: IReview[];
+  keywords: string[];
 }
 
 export interface RatingProps {
@@ -52,34 +74,31 @@ export interface RatingProps {
 	rating?: number;
 }
 
-export interface Review {
-	author: string;
-	content: string;
-	downvotes: number;
-	helpfulness: number;
-	keywords: string[];
-	rating: number;
-	spoilers: number;
-	submittedOn: string;
-	title: string;
-	upvotes: number;
-}
-
-export interface Summary {
-	score: number;
-	sentence: string;
-}
-
 export interface ILandingPageRes {
-	keywords: {
-		top: {
-			word: string
-			count: number;
-		}[];
-		random: {
-			word: string;
-			id: number;
-		}[];
-	};
-	movies: MovieAPIResponse[];
+  top: {
+    word: string
+    count: number;
+  }[];
+  random: {
+    word: string;
+    id: number;
+  }[];
+	movies: IMovieReduced[];
+}
+
+export interface IMovieSearchRes {
+  query: string;
+  page: number;
+  count: number;
+  search: IMovieMain[];
+}
+
+export interface IKeyword {
+  id: number;
+  word: string;
+}
+
+export interface IUser {
+  id: number;
+  username: string;
 }

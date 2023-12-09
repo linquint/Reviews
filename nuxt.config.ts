@@ -11,16 +11,16 @@ export default defineNuxtConfig({
       origin: 'movies.linquint.dev',
       methods: '*'
     },
-    contentSecurityPolicy: {
-      'default-src': ["'self'", 'https:'],
-      'font-src': ["'self'", 'https:', 'data:'],
-      'form-action': ["'self'"],
-      'frame-ancestors': ["'self'"],
-      'img-src': ["'self'", 'data:', 'https:'],
-      'object-src': ["'none'", 'https:'],
-      'script-src-attr': ["'none'"],
-      'style-src': ["'self'", 'https:', "'unsafe-inline'"],
-      'upgrade-insecure-requests': true
+    headers: {
+      contentSecurityPolicy: {
+        'font-src': ["'self'", 'https:', 'data:'],
+        'form-action': ["'self'"],
+        'frame-ancestors': ["'self'"],
+        'img-src': ["'self'", 'data: *', 'https:'],
+        'style-src': ["'self'", 'https:', "'unsafe-inline'"],
+        'upgrade-insecure-requests': true
+      },
+      crossOriginEmbedderPolicy: false,
     }
   },
   components: [

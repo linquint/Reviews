@@ -1,14 +1,15 @@
 .navigation
   position: sticky
-  top: 0
+  top: 1rem
   background: #background
-  width: 128rem
+  width: 100%
   left: 0
   right: 0
   padding: 1rem
   margin: 0 auto
+  z-index: 100
   & > div
-    background: transparentize($primary, 0.1)
+    background: $primary
     border-radius: 2rem
     display: flex
     flex-direction: row
@@ -16,6 +17,7 @@
     padding: 1.5rem
     max-width: 128rem
     margin: 0 auto
+    box-shadow: 0 0 0.5rem 0.2rem transparentize($accent, 0.5)
     .title
       font-size: 2rem
       font-weight: 500
