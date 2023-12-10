@@ -98,6 +98,11 @@ export interface IKeyword {
   word: string;
 }
 
+export interface IKeywordWithUsage {
+  word: string;
+  total: number;
+}
+
 export interface IUser {
   id: number;
   username: string;

@@ -44,7 +44,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
   ],
   imports: {
-    dirs: ['stores']
+    dirs: ['stores', 'middleware', 'plugins']
   },
   pinia: {
     autoImports: [

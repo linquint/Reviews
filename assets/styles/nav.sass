@@ -7,7 +7,7 @@
   right: 0
   padding: 1rem
   margin: 0 auto
-  z-index: 100
+  z-index: 10000
   & > div
     background: $primary
     border-radius: 2rem
@@ -25,6 +25,10 @@
         display: flex
         gap: 1rem
         align-items: center
+        color: $accent
+        text-decoration: none
+        svg path
+          color: $accent
         @media (max-width: 660px)
           span
             display: none

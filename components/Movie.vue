@@ -2,6 +2,7 @@
   <nuxt-link
     :to="`/movie/${movie.imdbID}`"
     class="movie"
+    :class="{ 'z-1000': hovering }"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false"
   >
@@ -16,6 +17,7 @@
         <Icon name="iconamoon:calendar-2-bold" class="icon small" />
         <span class="rating">{{ movie.releaseYear }}</span>
       </div>
+      <Icon v-if="$auth.likedMovies.find(m => m === movie.imdbID)" name="iconamoon:heart-fill" class="icon small" />
     </div>
     <div v-if="hovering" class="open">
       <Icon name="iconamoon:arrow-right-2-bold" class="icon large" />
@@ -34,5 +36,6 @@ defineProps({
   },
 });
 
+const $auth = useAuthStore();
 const hovering = ref(false);
 </script>

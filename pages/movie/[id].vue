@@ -39,9 +39,10 @@
                 v-if="!!$auth.user"
                 type="button"
                 class="button like-btn"
-                :class="{ 'dislike': !!likedStatus && likeBtnHover }"
+                :class="{ 'dislike': likedStatus && likeBtnHover }"
                 @mouseover="likeBtnHover = true"
                 @mouseleave="likeBtnHover = false"
+                @click="toggleLike"
               >
                 <template v-if="!likedStatus">
                   <Icon name="iconamoon:heart-bold" class="icon large" />
@@ -129,7 +130,7 @@ const likedStatus = computed(() => {
   if (!movie.value?.imdbID) {
     return false;
   }
-  return $auth.likedMovies.find((likedID) => likedID === movie.value?.imdbID);
+  return $auth.likedMovies.find(likedID => likedID === movie.value!.imdbID) === movie.value.imdbID;
 });
 
 const votesSimplified = computed(() => {
@@ -160,4 +161,15 @@ onMounted(async () => {
     console.error(error);
   }
 });
+
+async function toggleLike() {
+  if (!movie.value?.imdbID) {
+    return;
+  }
+  if (!likedStatus.value) {
+    await $auth.likeMovie(movie.value.imdbID);
+  } else {
+    await $auth.dislikeMovie(movie.value.imdbID);
+  }
+}
 </script>

@@ -49,7 +49,7 @@
             id="passwordVerify"
             v-model="passwordVerify"
             type="password"
-            placeholder="passwordVerify"
+            placeholder="Confirm password"
             class="input search"
             required
           >
@@ -83,9 +83,13 @@ async function login() {
 
 async function register() {
   const res = await $auth.register(username.value, password.value, passwordVerify.value);
-  if (res) {
+  if (!res) {
     loginForm.value = true;
+    password.value = '';
+    passwordVerify.value = '';
     error.value = 'You can now login';
+  } else {
+    error.value = res;
   }
 }
 </script>
