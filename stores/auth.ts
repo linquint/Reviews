@@ -44,7 +44,7 @@ export const useAuthStore = defineStore({
         const body = new FormData();
         body.append('username', username);
         body.append('password', password);
-        const res = await fetch('http://localhost:8000/api/login', {
+        const res = await fetch('https://movies.linquint.dev/api/login', {
           method: 'POST',
           body,
         });
@@ -76,7 +76,7 @@ export const useAuthStore = defineStore({
     },
     async register(username: string, password: string, passwordVerify: string): Promise<string> {
       try {
-        const res = await fetch('http://localhost:8000/api/register', {
+        const res = await fetch('https://movies.linquint.dev/api/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export const useAuthStore = defineStore({
     },
     async refresh(): Promise<void> {
       try {
-        const res = await fetch('http://localhost:8000/api/refresh', {
+        const res = await fetch('https://movies.linquint.dev/api/refresh', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ export const useAuthStore = defineStore({
     },
     async getLikedMovies(): Promise<void> {
       try {
-        const res = await fetch('http://localhost:8000/api/likes', {
+        const res = await fetch('https://movies.linquint.dev/api/likes', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ export const useAuthStore = defineStore({
     },
     async likeMovie(movieId: string): Promise<void> {
       try {
-        const res = await fetch(`http://localhost:8000/api/movies/like/${movieId}`, {
+        const res = await fetch(`https://movies.linquint.dev/api/movies/like/${movieId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ export const useAuthStore = defineStore({
     },
     async dislikeMovie(movieId: string): Promise<void> {
       try {
-        const res = await fetch(`http://localhost:8000/api/movies/dislike/${movieId}`, {
+        const res = await fetch(`https://movies.linquint.dev/api/movies/dislike/${movieId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ export const useAuthStore = defineStore({
       }
       this.recommendationsPending = true;
       try {
-        const res = await fetch('http://localhost:8000/api/recommendations', {
+        const res = await fetch('https://movies.linquint.dev/api/recommendations', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -209,7 +209,7 @@ export const useAuthStore = defineStore({
       }
       this.profilePending = true;
       try {
-        const res = await fetch('http://localhost:8000/api/profile', {
+        const res = await fetch('https://movies.linquint.dev/api/profile', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

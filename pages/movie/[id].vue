@@ -154,7 +154,7 @@ onMounted(async () => {
   try {
     const id = $route.params.id;
     if (id) {
-      const response = await fetch(`http://localhost:8000/api/movie/${id}`);
+      const response = await fetch(`https://movies.linquint.dev/api/movie/${id}`);
       movie.value = (await response.json()) as IMovieFull;
     }
   } catch (error) {

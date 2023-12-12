@@ -2,9 +2,15 @@
   <div class="home">
     <main>
       <SearchInput fullWidth placeholder="Movie search" />
-      <nuxt-link to="/keywords" type="button" class="button bigger link">
-        Search by keywords instead
-      </nuxt-link>
+      <div class="d-flex gap-20 align-c justify-sb flex-wrap">
+        <nuxt-link to="/keywords" type="button" class="button bigger link">
+          Search by keywords
+        </nuxt-link>
+        <div v-if="!$store.searchResults" />
+        <button v-else type="button" class="button bigger" @click="clear">
+          Reset search
+        </button>
+      </div>
 
       <template v-if="$store.searchResultsPending || $store.landingPagePending">
         <Spinner />
@@ -39,6 +45,12 @@
           <div v-else>
             <p class="no-results">No results found.</p>
           </div>
+          <div v-if="$store.searchResults.count > ($store.searchResults?.search || []).length" class="d-flex flex-row justify-c mt-20">
+            <Spinner v-if="$store.moreResultsPending" />
+            <button v-else type="button" class="button" @click="$store.loadMoreSearchResults()">
+              Load more
+            </button>
+          </div>
         </template>
       </template>
     </main>
@@ -62,5 +74,11 @@ onBeforeUnmount(() => {
 
 function resize() {
   screenWidth.value = window.innerWidth;
+}
+
+function clear() {
+  $store.search = '';
+  $store.searchResults = null;
+  $store.searchPage = 1;
 }
 </script>

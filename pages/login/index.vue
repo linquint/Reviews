@@ -74,6 +74,12 @@ const passwordVerify = ref('');
 const loginForm = ref(true);
 const error = ref('');
 
+watch(() => loginForm.value, () => {
+  error.value = '';
+  password.value = '';
+  passwordVerify.value = '';
+});
+
 async function login() {
   const res = await $auth.login(username.value, password.value);
   if (res) {
@@ -87,7 +93,9 @@ async function register() {
     loginForm.value = true;
     password.value = '';
     passwordVerify.value = '';
-    error.value = 'You can now login';
+    nextTick(() => {
+      error.value = 'You can now login';
+    });
   } else {
     error.value = res;
   }
