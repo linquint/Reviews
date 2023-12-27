@@ -146,7 +146,7 @@ export const useAuthStore = defineStore({
     async likeMovie(movieId: string): Promise<void> {
       try {
         const res = await fetch(`https://movies.linquint.dev/api/movies/like/${movieId}`, {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${this.token}`,
@@ -164,7 +164,7 @@ export const useAuthStore = defineStore({
     async dislikeMovie(movieId: string): Promise<void> {
       try {
         const res = await fetch(`https://movies.linquint.dev/api/movies/dislike/${movieId}`, {
-          method: 'GET',
+          method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${this.token}`,

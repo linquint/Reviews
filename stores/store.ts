@@ -43,6 +43,12 @@ export const useStore = defineStore('store', {
       }
     },
     async searchMovies(): Promise<void> {
+      if (this.searchResultsPending) {
+        return;
+      }
+      if (this.search !== this.searchResults?.query) {
+        this.searchPage = 1;
+      }
       this.searchResultsPending = true;
       try {
         const searchRes = await fetch(`https://movies.linquint.dev/api/search/${this.search}/${this.searchPage}`);
